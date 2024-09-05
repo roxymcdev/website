@@ -30,11 +30,11 @@ useHead({
       <Content>
         <div id="news">
           <TitledLine>News</TitledLine>
-          <div class="flex px-2 gap-x-4 overflow-x-scroll">
-            <ArticleCardSmall/>
-            <ArticleCardSmall/>
-            <ArticleCardSmall/>
-            <ArticleCardSmall/>
+          <div class="flex px-2 gap-x-4 overflow-x-scroll snap-mandatory snap-x sm:snap-normal">
+            <ArticleCardSmall class="snap-center"/>
+            <ArticleCardSmall class="snap-center"/>
+            <ArticleCardSmall class="snap-center"/>
+            <ArticleCardSmall class="snap-center"/>
           </div>
           <div class="flex justify-center mt-6">
             <DarkCraftButton to="/blog">See more</DarkCraftButton>
