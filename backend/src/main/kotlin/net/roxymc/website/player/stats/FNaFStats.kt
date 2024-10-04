@@ -12,9 +12,9 @@ fun fetchFNaFStats(uniqueId: UUID): FNaFStats {
 
     @Suppress("UNCHECKED_CAST")
     return FNaFStats(
-        data?.getInteger("PLAYER_EXP"),
-        data?.get("PLAYER_PLAYED") as? Map<String, Int>,
-        data?.get("PLAYER_WINS") as? Map<String, Int>
+        data?.getInteger("exp"),
+        data?.get("playedArenas") as? Map<String, Int>,
+        data?.get("wonArenas") as? Map<String, Int>
     )
 }
 

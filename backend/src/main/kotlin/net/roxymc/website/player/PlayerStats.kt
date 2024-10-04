@@ -19,7 +19,7 @@ fun fetchBasePlayersStats(): Map<UUID, PlayerStats> {
         .find()
         .map { document ->
             val uniqueId = document.get("_id", UUID::class.java)
-            val name = document.getString("_name")
+            val name = document.getString("name")
             val extra = mongoDB.fetchLuckPermsUsers()
                 .find(uniqueId.asMongoFilter())
                 .first()

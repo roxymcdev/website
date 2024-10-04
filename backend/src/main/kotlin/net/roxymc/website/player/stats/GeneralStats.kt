@@ -12,7 +12,7 @@ fun fetchGeneralStats(uniqueId: UUID): GeneralStats {
         .find(uniqueId.asMongoFilter())
         .first()
 
-    return GeneralStats(toolsData?.getDouble("PLAYER_BALANCE"), langsData?.getString("PLAYER_LANGUAGE"))
+    return GeneralStats(toolsData?.getDouble("balance"), langsData?.getString("language"))
 }
 
 data class GeneralStats(val balance: Double?, val language: String?) : Stats
