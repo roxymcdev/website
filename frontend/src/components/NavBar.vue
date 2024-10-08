@@ -26,7 +26,7 @@ const navigation: Link[] = [
   <Disclosure v-slot="{ open }" :class="position" as="nav" class="z-50 top-0 w-full">
     <div class="bg-neutral-900 border-b-4 border-x-4 border-craft-outline mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
-        <div class="inset-y-0 left-0 flex items-center sm:collapse mr-2">
+        <div class="inset-y-0 left-0 flex items-center sm:hidden mr-2">
           <DisclosureButton
               class="relative inline-flex items-center justify-center p-2 text-zinc-300">
             <span class="absolute -inset-0.5"/>
