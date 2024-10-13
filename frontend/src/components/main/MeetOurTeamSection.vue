@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
                  class="h-full w-full transition-all ease-linear duration-75">
               <div class="flex h-full px-4 md:px-8 py-4 sm:py-8 gap-4 sm:gap-6 md:gap-8">
                 <NuxtImg :alt="teamMember.name" :src="`/images/team/members/3d/${teamMember.image}.png`"
-                         class="hidden sm:block w-48 object-contain" format="webp" preload quality="100"/>
+                         class="hidden sm:block min-w-48 max-w-48 object-contain" format="webp" preload quality="100"/>
                 <div class="w-full">
                   <div class="flex sm:block flex-col items-center mb-2">
                     <NuxtImg :alt="teamMember.name" :src="`/images/team/members/2d/${teamMember.image}.png`"
