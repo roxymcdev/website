@@ -33,26 +33,28 @@ const gameModes: GameMode[] = [
 <template>
   <Carousel :size="gameModes.length" selection-bar>
     <template #default="{ selected }">
-      <div v-for="(gameMode, i) in gameModes"
-           :class="[i === selected ? 'z-0 opacity-100 relative' : 'z-10 invisible opacity-0 absolute top-0 left-0']"
-           class="flex flex-col sm:flex-row gap-6 flex-grow transition-all ease-linear duration-75">
-        <div class="w-full relative border-4 border-craft-outline">
-          <Carousel :duration="2500" :enabled="i === selected" :size="gameMode.images.length"
-                    class="z-10 relative h-full">
-            <template #default="{ selected }">
-              <NuxtImg v-for="(image, i) in gameMode.images"
-                       :class="[i === selected ? 'z-10 relative' : 'z-0 absolute top-0 left-0']" :src="image" alt=""
-                       class="h-full object-cover" format="webp" height="480" preload quality="100" width="854"/>
-            </template>
-          </Carousel>
-          <div class="z-0 absolute top-0 left-0 w-full h-full animate-pulse bg-neutral-500"/>
-        </div>
-        <div class="w-full relative">
-          <div class="z-10 relative">
-            <p class="text-3xl font-minecraft-ten mb-2">{{ gameMode.title }}</p>
-            <p>{{ gameMode.description }}</p>
+      <div class="grid grid-rows-1">
+        <div v-for="(gameMode, i) in gameModes"
+             :class="[i === selected ? 'z-10 opacity-100' : 'z-0 invisible opacity-0']"
+             class="col-[1] row-[1] flex flex-col sm:flex-row gap-6 flex-grow transition-[visibility,opacity] ease-linear duration-75">
+          <div class="w-full relative border-4 border-craft-outline">
+            <Carousel :duration="2500" :enabled="i === selected" :size="gameMode.images.length"
+                      class="z-10 relative h-full">
+              <template #default="{ selected }">
+                <NuxtImg v-for="(image, i) in gameMode.images"
+                         :class="[i === selected ? 'z-10 relative' : 'z-0 absolute top-0 left-0']" :src="image" alt=""
+                         class="h-full object-cover" format="webp" height="480" preload quality="100" width="854"/>
+              </template>
+            </Carousel>
+            <div class="z-0 absolute top-0 left-0 size-full animate-pulse bg-neutral-500"/>
           </div>
-          <div v-if="gameMode.extra" :class="gameMode.extra.classes" v-html="gameMode.extra.content.join('')"/>
+          <div class="w-full relative">
+            <div class="z-10 relative">
+              <p class="text-3xl font-minecraft-ten mb-2">{{ gameMode.title }}</p>
+              <p>{{ gameMode.description }}</p>
+            </div>
+            <div v-if="gameMode.extra" :class="gameMode.extra.classes" v-html="gameMode.extra.content.join('')"/>
+          </div>
         </div>
       </div>
     </template>
