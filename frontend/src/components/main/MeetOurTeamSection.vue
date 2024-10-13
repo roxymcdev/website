@@ -30,10 +30,10 @@ const teamMembers: TeamMember[] = [
     <template #default="{ selected }">
       <div class="flex justify-center min-h-96 sm:h-96 w-full">
         <div class="max-w-[46rem] w-full">
-          <div class="relative h-full bg-neutral-900 border-4 border-craft-outline">
+          <div class="grid grid-rows-1 h-full bg-neutral-900 border-4 border-craft-outline">
             <div v-for="(teamMember, i) in teamMembers"
-                 :class="[i === selected ? 'z-0 opacity-100 relative' : 'z-10 invisible opacity-0 absolute top-0 left-0']"
-                 class="h-full w-full transition-all ease-linear duration-75">
+                 :class="[i === selected ? 'z-10 opacity-100' : 'z-0 invisible opacity-0']"
+                 class="col-[1] row-[1] size-full transition-[visibility,opacity] ease-linear duration-75">
               <div class="flex h-full px-4 md:px-8 py-4 sm:py-8 gap-4 sm:gap-6 md:gap-8">
                 <NuxtImg :alt="teamMember.name" :src="`/images/team/members/3d/${teamMember.image}.png`"
                          class="hidden sm:block min-w-48 max-w-48 object-contain" format="webp" preload quality="100"/>
