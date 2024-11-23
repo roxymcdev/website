@@ -28,32 +28,11 @@ kotlin {
 }
 
 tasks {
-    /*
-    val copyFrontend = create<Copy>("copyFrontend") {
-        val frontend = project(":frontend")
-
-        inputs.dir(frontend.projectDir)
-
-        from(frontend.file("dist"))
-        into(layout.buildDirectory.dir("resources/main/frontend"))
-
-        dependsOn(":frontend:generate")
-    }
-     */
-
     compileKotlin {
         dependsOn(clean)
     }
 
-    /*
-    create<Jar>("devJar") {
-        finalizedBy(copyFrontend)
-    }
-     */
-
     shadowJar {
         archiveFileName = "RoxyMC-website.jar"
-
-        //dependsOn(copyFrontend)
     }
 }

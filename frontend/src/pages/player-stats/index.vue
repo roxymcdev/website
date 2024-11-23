@@ -31,7 +31,9 @@ const {
   status,
   data: playersStats
 } = await useLazyAsyncData(async () => {
+  fetching.value = true
   const response = await $fetch.raw(`${apiBase}/player-stats?search=${searchInput.value}`)
+  fetching.value = false
 
   totalCount = parseInt(response.headers.get("X-Total-Count") || response._data.length.toString())
 
@@ -43,7 +45,7 @@ const {
 
 const onScroll = () => {
   if (!pageArea.value) return
-  if (window.scrollY + window.innerHeight < pageArea.value.offsetHeight + pageArea.value.offsetTop) return;
+  if (window.scrollY + window.innerHeight < pageArea.value.offsetHeight + pageArea.value.offsetTop) return
 
   debounce(async () => {
     const offset = getOffset()
@@ -63,6 +65,10 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("scroll", onScroll)
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+  playersStats.value = []
 })
 
 const input = (e: InputEvent) => {
@@ -72,12 +78,11 @@ const input = (e: InputEvent) => {
 
 const search = (input: string) => {
   searchInput.value = input
+  playersStats.value = []
   execute()
 }
 
 const getOffset = (): number => status.value === "success" ? playersStats.value?.length || 0 : 0
-
-const isFetching = (): boolean => !playersStats.value || fetching.value
 </script>
 
 <template>
@@ -95,7 +100,7 @@ const isFetching = (): boolean => !playersStats.value || fetching.value
                 <div v-if="playersStats" class="flex flex-wrap gap-4">
                   <PlayerCard v-for="stats in playersStats" :player-stats="stats"/>
                 </div>
-                <div v-if="isFetching()" class="flex justify-center">
+                <div v-if="fetching" class="flex justify-center">
                   <SpinningWheel/>
                 </div>
               </div>
