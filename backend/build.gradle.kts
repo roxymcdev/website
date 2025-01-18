@@ -19,7 +19,7 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
     implementation("io.ktor:ktor-serialization-gson-jvm")
     implementation("ch.qos.logback:logback-classic:1.4.14")
-    implementation("org.mongodb:mongodb-driver-legacy:4.5.0")
+    implementation("org.mongodb:mongodb-driver-kotlin-sync:5.3.0")
     implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 }
 
