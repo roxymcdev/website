@@ -15,7 +15,7 @@
     "@nuxt/fonts": "^0.7.1",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.15.3",
     "skinview3d": "^3.0.1",
     "vue": "latest"
   }
