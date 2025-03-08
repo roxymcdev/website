@@ -34,7 +34,7 @@
   position: relative;
   display: block;
   background-color: var(--background-color);
-  box-shadow: -2px -2px 0 2px var(--top-right-color), 2px 2px 0 2px var(--bottom-left-color), 0 0 0 4px var(--corner-color);
+  box-shadow: calc(-0.5 * var(--pixel-size)) calc(-0.5 * var(--pixel-size)) 0 calc(0.5 * var(--pixel-size)) var(--top-right-color), calc(0.5 * var(--pixel-size)) calc(0.5 * var(--pixel-size)) 0 calc(0.5 * var(--pixel-size)) var(--bottom-left-color), 0 0 0 var(--pixel-size) var(--corner-color);
   padding: calc(1.5 * var(--pixel-size)) calc(10px + 1.5 * var(--pixel-size));
   margin: var(--pixel-size);
   font-size: calc(4 * var(--pixel-size));
