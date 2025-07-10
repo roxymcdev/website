@@ -21,6 +21,13 @@ const teamMembers: TeamMember[] = [
     rank: "owner",
     image: "notro",
     classes: "bg-neutral-900"
+  },
+  {
+    name: "Aruuvi",
+    description: "Hi! I’m Aruuvi, an Administrator on RoxyMC. I support the server’s growth through marketing and help boost its visibility. I also oversee the testing team, coordinating their work to ensure a polished, enjoyable gameplay experience. My goal is to foster a friendly and dynamic environment where every player feels welcome and excited to be part of the RoxyMC community.",
+    rank: "admin",
+    image: "aruuvi",
+    classes: "bg-neutral-900"
   }
 ]
 </script>
